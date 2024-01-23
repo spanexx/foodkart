@@ -2,27 +2,36 @@ import { Component, OnInit } from '@angular/core';
 import { Food } from '../../../shared/models/Food';
 import { FoodService } from '../../../service/food.service';
 import { FormsModule } from '@angular/forms';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RatingModule, StarRatingComponent } from 'ng-starrating';
 import { RatingComponent } from 'ng-starrating/lib/rating.component';
+import { SearchComponent } from '../../partials/search/search.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [FormsModule, RouterLink, 
-            CommonModule, RouterOutlet,],
+            CommonModule, RouterOutlet, SearchComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
   currentRating: number | null = null;
   foods:Food[] = [];
-  constructor(private foodService: FoodService){}
+  constructor(private foodService: FoodService, private activatedRoute: ActivatedRoute){
+    
+  }
 
 
   ngOnInit(): void {
-    this.foods = this.foodService.getAll();
+    this.activatedRoute.params.subscribe((params) => {
+      if (params.searchTerm) {
+        this.foods = this.foodService.getFoodBySearchTerm(params.searchTerm);
+      } else {
+        this.foods = this.foodService.getAll();
+      }
+    });
   }
 
   rate(rating: number): void {
