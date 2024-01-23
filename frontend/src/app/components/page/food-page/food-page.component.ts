@@ -5,6 +5,8 @@ import { Food } from '../../../shared/models/Food';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TagsComponent } from '../../partials/tag/tag.component';
+import { CartService } from '../../../services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-food-page',
@@ -18,7 +20,9 @@ export class FoodPageComponent implements OnInit{
   food!: Food;
   private activatedRoute: ActivatedRoute;
   private foodService: FoodService;
-  constructor(activatedRoute: ActivatedRoute, foodService: FoodService){
+ 
+  constructor(activatedRoute: ActivatedRoute, foodService: FoodService,
+    private cartService: CartService, private router: Router){
     this.activatedRoute = activatedRoute;
     this.foodService = foodService;
   }
@@ -45,6 +49,11 @@ ngOnInit(): void {
 
   isStarChecked(starNumber: number): boolean {
     return this.currentRating !== null && starNumber <= this.currentRating;
+  }
+
+  addToCart(){
+    this.cartService.addToCart(this.food)
+    this.router.navigateByUrl('/cart-page')
   }
 
 }
