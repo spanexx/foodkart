@@ -12,21 +12,23 @@ import { Router } from '@angular/router';
 export class SearchComponent implements OnInit {
   searchTerm = "";
   private activatedRoute: ActivatedRoute;
-  constructor(activatedRoute: ActivatedRoute, private router: Router){
+  constructor(activatedRoute: ActivatedRoute, private router: Router) {
     this.activatedRoute = activatedRoute;
   }
-  
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       if (params.searchTerm) this.searchTerm = params.searchTerm;
     });
   }
-    search(term: string): void {
-      if(term){
-      this.router.navigateByUrl('/search/'+term)
-    }else  if (term.trim() === '') {
-      // If the input is empty, navigate to the root
+  search(term: string): void {
+    if (term) {
+      this.router.navigateByUrl('/search/' + term)
+    } else if (term.trim() === '') {
+      
       this.router.navigateByUrl('/');
 
-}}}
-    
+    }
+  }
+}
+
