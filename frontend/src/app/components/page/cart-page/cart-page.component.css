@@ -1,0 +1,101 @@
+/* cart-page.component.css */
+
+.cart-container {
+    background-color: #343434;
+    color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.cart-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #333333;
+    padding: 10px 0;
+
+    .food-image {
+        max-width: 80px;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    .item-details {
+        display: flex;
+        align-items: center;
+    }
+
+    .item-info {
+        p {
+            margin: 5px 0;
+        }
+
+        .food-name {
+            font-weight: bold;
+        }
+    }
+
+    .item-actions {
+        display: flex;
+        align-items: center;
+
+        .action-button {
+            background-color: #80c282;
+            color: #1b1b1b;
+            border: none;
+            padding: 8px 12px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 14px;
+            &:hover {
+                background-color: #00506b;
+                color: aliceblue;
+            }
+        }
+    }
+}
+
+.cart-total {
+    margin-top: 20px;
+
+    p {
+        margin: 5px 0;
+    }
+}
+
+.cart-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    border-radius: 12px;
+   
+
+    .clear-button,
+    .checkout-button {
+        background-color: #58d0f8;
+        color: #453e3e;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 12px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #00506b;
+            color: aliceblue;
+        }
+    }
+}
+
+.empty-cart {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 20px;
+    font-size: 18px;
+}

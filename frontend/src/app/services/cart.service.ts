@@ -21,8 +21,8 @@ export class CartService {
     }
   }
 
-  removeFromCart(food: Food): void {
-    this.cart.items = this.cart.items.filter(item => item.food.id !== food.id);
+  removeFromCart(foodId: string): void {
+    this.cart.items = this.cart.items.filter(item => item.food.id !== foodId);
     this.setCartToLocalStorage();
   }
 
@@ -47,19 +47,26 @@ export class CartService {
   }
 
   private setCartToLocalStorage(): void {
-    this.cart.totalPrice = this.cart.items
-      .reduce((prevSum, currentItem) => prevSum + currentItem.food.price * currentItem.quantity, 0);
+    if (typeof localStorage !== 'undefined') {
+        this.cart.totalPrice = this.cart.items
+            .reduce((prevSum, currentItem) => prevSum + currentItem.food.price * currentItem.quantity, 0);
 
-    this.cart.totalCount = this.cart.items
-      .reduce((prevSum, currentItem) => prevSum + currentItem.quantity, 0);
+        this.cart.totalCount = this.cart.items
+            .reduce((prevSum, currentItem) => prevSum + currentItem.quantity, 0);
 
-    const cartJSON = JSON.stringify(this.cart);
-    localStorage.setItem('cart', cartJSON);
-    this.cartSubject.next(this.cart);
-  }
+        const cartJSON = JSON.stringify(this.cart);
+        localStorage.setItem('cart', cartJSON);
+        this.cartSubject.next(this.cart);
+    }
+}
 
-  private getCartFromLocalStorage(): Cart {
-    const cartJSON = localStorage.getItem('cart');
-    return cartJSON ? JSON.parse(cartJSON) : new Cart();
-  }
+private getCartFromLocalStorage(): Cart {
+    if (typeof localStorage !== 'undefined') {
+        const cartJSON = localStorage.getItem('cart');
+        return cartJSON ? JSON.parse(cartJSON) : new Cart();
+    } else {
+        // If localStorage is not available, return a default empty cart
+        return new Cart();
+    }
+}
 }

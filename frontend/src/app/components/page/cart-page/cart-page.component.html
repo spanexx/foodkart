@@ -1,1 +1,39 @@
-<p>cart-page works!</p>
+<!-- cart-page.component.html -->
+
+<div *ngIf="cart && cart.items.length > 0; else emptyCart" class="cart-container">
+    <div class="cart-header">
+        <h2>FoodKart</h2>
+    </div>
+
+    <div *ngFor="let item of cart.items" class="cart-item">
+        <!-- Display the food image -->
+        <div class="item-details">
+            <img *ngIf="item.food.imageUrl" [src]="item.food.imageUrl" alt="{{ item.food.name }}" class="food-image">
+            <div class="item-info">
+                <p class="food-name">{{ item.food.name }}</p>
+                <p>Quantity: {{ item.quantity }}</p>
+                <p>Price: {{ item.price | currency }}</p>
+            </div>
+        </div>
+
+        <div class="item-actions">
+            <button class="action-button" (click)="changeQuantity(item, item.quantity - 1)">-</button>
+            <button class="action-button" (click)="changeQuantity(item, item.quantity + 1)">+</button>
+            <button class="action-button" (click)="removeFromCart(item)">Remove</button>
+        </div>
+    </div>
+
+    <div class="cart-total">
+        <p>Total Price: {{ cart.totalPrice | currency }}</p>
+        <p>Total Items: {{ cart.totalCount }}</p>
+    </div>
+
+    <div class="cart-buttons">
+        <button class="checkout-button" (click)="checkout()">Checkout</button>
+        <button class="clear-button" (click)="clearCart()">Clear Cart</button>
+    </div>
+</div>
+
+<ng-template #emptyCart class="empty-cart">
+    <p>Your cart is empty.</p>
+</ng-template>
