@@ -1,5 +1,8 @@
 <app-search></app-search>
 <app-tag></app-tag>
+<app-cart-info
+[visible]="!foods || !foods.length"
+resetLink="Reset Search"></app-cart-info>
 <ul>
   <li *ngFor="let food of foods">
     <a routerLink="/food/{{food.id}}">

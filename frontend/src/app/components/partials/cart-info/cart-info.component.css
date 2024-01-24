@@ -1,0 +1,34 @@
+/* your-component.component.css */
+
+.not-found-container {
+  background-color: #ffffff;  /* Light red background */
+  color: #721c24;  /* Dark red text color */
+  padding: 15px;  /* Padding around the content */
+  width: 70%;
+  height: 300px;
+  display: block;
+  margin: auto;
+  margin-top: 40px;
+  text-align: center;
+  font-weight: 500;
+  font-size: larger;
+
+  /* Add additional styling as needed */
+}
+
+.reset-button {
+  color: #ffffff;  /* Text color for the button */
+  background-color: #721c24;  /* Dark red background color for the button */
+  border: none;  /* Remove border for a clean appearance */
+  padding: 10px 20px;  /* Padding around the button content */
+  margin-top: 20px;  /* Add some space between the message and the button */
+  cursor: pointer;  /* Add pointer cursor to indicate interactivity */
+  font-size: larger;  /* Adjust the font size */
+
+  /* Add additional styling as needed */
+}
+
+.reset-button:hover {
+  background-color: #932734;  /* Darken the background color on hover */
+  /* Add additional hover styling if desired */
+}

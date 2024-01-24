@@ -1,6 +1,7 @@
+<!-- search.component.html -->
 <div>
-    <input #s type="text" placeholder="Search Food Kart"
-    (keyup.enter)="search(s.value)"
-    [value]="searchTerm">
-    <button (click)="search(s.value)">Search</button>
+    <input [(ngModel)]="searchTerm" type="text" placeholder="Search Food Kart"
+           (keyup.enter)="search(searchTerm)"
+           (ngModelChange)="onSearchTermChange()">
+    <button (click)="search(searchTerm)">Search</button>
 </div>

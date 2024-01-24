@@ -3,7 +3,6 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/partials/header/header.component';
 import { homedir } from 'os';
 import { HomeComponent } from './components/page/home/home.component';
-import { TempService } from './services/temp.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +10,7 @@ import { TempService } from './services/temp.service';
   imports: [RouterOutlet, HeaderComponent, HomeComponent,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  providers: [TempService]
+  providers: []
 })
 export class AppComponent {
   title = 'frontend';

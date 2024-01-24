@@ -8,12 +8,14 @@ import { RatingModule, StarRatingComponent } from 'ng-starrating';
 import { RatingComponent } from 'ng-starrating/lib/rating.component';
 import { SearchComponent } from '../../partials/search/search.component';
 import { TagsComponent } from '../../partials/tag/tag.component';
+import { CartInfoComponent } from '../../partials/cart-info/cart-info.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [FormsModule, RouterLink, 
-            CommonModule, RouterOutlet, SearchComponent, TagsComponent],
+            CommonModule, RouterOutlet, SearchComponent, 
+            TagsComponent, CartInfoComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

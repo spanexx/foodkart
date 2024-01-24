@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { FoodService } from '../../../service/food.service';
-import { Tag } from '../../../shared/Tag';
+import { Tag } from '../../../shared/models/Tag';
 import { Food } from '../../../shared/models/Food';
 
 @Component({

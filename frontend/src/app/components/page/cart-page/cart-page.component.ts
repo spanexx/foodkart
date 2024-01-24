@@ -5,11 +5,13 @@ import { CartItem } from '../../../shared/models/cart-item';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CartInfoComponent } from '../../partials/cart-info/cart-info.component';
+import { TitleComponent } from '../../partials/title/title.component';
 
 @Component({
   selector: 'app-cart-page',
   standalone: true,
-  imports: [FormsModule, RouterLink, RouterOutlet, CommonModule],
+  imports: [FormsModule, RouterLink, RouterOutlet, CommonModule, CartInfoComponent,TitleComponent],
   templateUrl: './cart-page.component.html',
   styleUrls: ['./cart-page.component.css']
 })

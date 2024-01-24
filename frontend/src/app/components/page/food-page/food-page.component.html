@@ -1,9 +1,15 @@
-<div class="container">
+<app-cart-info
+[visible]="!food.id"
+notFoundMessage="Food Not Found"
+resetLink="Back To Homepage"></app-cart-info>
+<div *ngIf="food.id" class="container">
     <img class="food-image" [src]="food.imageUrl" [alt]="food.name">
     <div class="details">
       <div class="header">
+        <div class="head">
         <span class="name">{{ food.name }}</span>
         <span class="favorite {{ food.favorite ? '': 'not' }}">❤</span>
+      </div>
         <div class="stars">
           <span class="star" [class.selected]="isStarChecked(1)" (click)="rate(1)" id="star1">☆</span>
           <span class="star" [class.selected]="isStarChecked(2)" (click)="rate(2)" id="star2">☆</span>

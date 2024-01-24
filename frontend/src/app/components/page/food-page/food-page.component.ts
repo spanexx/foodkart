@@ -7,11 +7,13 @@ import { CommonModule } from '@angular/common';
 import { TagsComponent } from '../../partials/tag/tag.component';
 import { CartService } from '../../../services/cart.service';
 import { Router } from '@angular/router';
+import { CartInfoComponent } from '../../partials/cart-info/cart-info.component';
 
 @Component({
   selector: 'app-food-page',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterLink, RouterOutlet, TagsComponent],
+  imports: [FormsModule, CommonModule, RouterLink, 
+            RouterOutlet, TagsComponent, CartInfoComponent],
   templateUrl: './food-page.component.html',
   styleUrl: './food-page.component.css'
 })

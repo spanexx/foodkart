@@ -2,6 +2,7 @@
     font-size: 28px;
     color: grey;
     cursor: pointer;
+    align-self: flex-start; /* Align to the start (left) */
 }
 .star:hover {
     color: gold;
@@ -21,6 +22,11 @@
     align-items: center;
     flex-wrap: wrap;
     margin: 3rem;
+
+}
+.head{
+  display: flex;
+  justify-content: space-between;
 }
 
 .container > *{
@@ -70,8 +76,10 @@ img{
   }
 
   .details .favorite{
+    text-align: right;
     color: #e72929;
     font-size: 2.5rem;
+   
 }
 
 .details .favorite.not{

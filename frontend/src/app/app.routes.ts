@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FoodPageComponent } from './components/page/food-page/food-page.component';
 import { TagsComponent } from './components/partials/tag/tag.component';
 import { CartPageComponent } from './components/page/cart-page/cart-page.component';
+import { CartInfoComponent } from './components/partials/cart-info/cart-info.component';
 
 
 export const routes: Routes = [
@@ -13,4 +14,5 @@ export const routes: Routes = [
     {path: 'tag/:tag', component: HomeComponent},
     {path: 'cart-page', component: CartPageComponent},
     {path: 'home', component: HomeComponent},
+    {path: 'cart-info', component: CartInfoComponent},
 ];
